@@ -1,8 +1,10 @@
-const express = require('express')
 require('dotenv').config()
+const express = require('express')
+const workoutRoutes = require('./routes/workouts')
 
 const app = express()
-const workoutRoutes = require('./routes/workouts')
+
+app.use(express.json())
 
 app.use((req, res, next)=>{
     console.log(req.path, req.method)
