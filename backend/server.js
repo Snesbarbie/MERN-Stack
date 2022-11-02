@@ -1,8 +1,11 @@
 const express = require('express')
+require('dotenv').config()
+
 
 const app = express()
 
-const host = "localhost"
-const port = 8800
+app.get('/', (req, res) => {
+    res.json({msg: 'Welcome'})
+})
 
-app.listen(port, () =>{console.log("Listening to " + port)})
+app.listen(process.env.PORT, () =>{console.log("Listening to " + process.env.PORT)})
