@@ -15,8 +15,8 @@ app.use((req, res, next)=>{
 
 app.use('/api/workouts',workoutRoutes)
 
-// db connect
-mongoose.connect(process.env.MONGO_URI)
+
+mongoose.connect(process.env.MONGO_URI) // db connect
     .then(() => {
         app.listen(process.env.PORT, () =>{
             console.log("On DB and listening to " + process.env.PORT)
