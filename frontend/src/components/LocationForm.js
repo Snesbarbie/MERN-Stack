@@ -1,6 +1,8 @@
 import {useState} from "react"
+import { useLocationContext } from "../hooks/useLocationsContext";
 
 const LocationForm = () => {
+    const{dispatch} = useLocationContext()
     const [title, setTitle] = useState('')
     const [day, setDay] = useState('')
     const [address, setAddress] = useState('')
@@ -28,7 +30,8 @@ const LocationForm = () => {
             setDay('')
             setAddress('')
             setError(null)
-            console.log('New Location Added')
+            console.log('New Location Added', json)
+            dispatch({type: 'CREATE_LOCATION', payload: json})
         }
 
     }

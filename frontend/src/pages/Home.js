@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
+import { useLocationContext } from "../hooks/useLocationsContext";
 import LocationDetails from '../components/LocationDetails'
 import LocationForm from '../components/LocationForm'
 
 const Home = () => {
-    const [locations, setLocations] = useState(null)
+    const {locations, dispatch} = useLocationContext()
+
     useEffect(()=>{
         const fetchLocations = async ()=>{
             const response = await fetch('/api/locations')
             const json = await response.json()
             if(response.ok){
-                setLocations(json)
+                dispatch({type: 'SET_LOCATIONS', payload: json})
             }
         }
         fetchLocations()
