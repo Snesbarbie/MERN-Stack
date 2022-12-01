@@ -15,7 +15,7 @@ const Home = () => {
             }
         }
         fetchLocations()
-    },[])
+    })
     return (
         <div className="home">
             <div className="locations">
