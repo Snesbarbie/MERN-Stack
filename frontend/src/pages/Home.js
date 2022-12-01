@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import LocationDetails from '../components/LocationDetails'
+import LocationForm from '../components/LocationForm'
 
 const Home = () => {
     const [locations, setLocations] = useState(null)
@@ -22,6 +23,7 @@ const Home = () => {
                     //<p key={location._id}>{location.title}</p>
                 ))}
             </div>
+            <LocationForm />
         </div>
     )
 }
