@@ -5,7 +5,19 @@ const Nav = () => {
         <header>
          <div className="container">
              <Link to = '/'>
-                    <h1>Top Nav Bar</h1>
+                    <h4>Home</h4>
+               </Link>
+               <Link to = '/lineup'>
+                    <h4>Lineup</h4>
+               </Link>
+               <Link to = '/travel'>
+                    <h4>Travel</h4>
+               </Link>
+               <Link to = '/festival'>
+                    <h4>Frestival Info</h4>
+               </Link>
+               <Link to = '/tichets'>
+                    <h4>Buy Tickets</h4>
                </Link>
           </div>
         </header>
