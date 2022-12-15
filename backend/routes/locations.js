@@ -5,7 +5,7 @@ const {
   crudPost,
   crudUpdate,
   crudDelete
-} = require('../controllers/crudController')
+} = require('../controllers/locationController')
 
 const router = express.Router()
 

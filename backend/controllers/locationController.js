@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
-const crudModel = require('../models/crudModel')
+const locationModel = require('../models/locationModel')
 
 // Get All
 const crudAll = async (req, res) => {
 
-    const crudModels = await crudModel.find({}).sort({createdAt: -1})
+    const locationModels = await locationModel.find({}).sort({createdAt: -1})
 
-    res.status(200).json(crudModels)
+    res.status(200).json(locationModels)
 
     }
 // Get using ID
@@ -17,13 +17,13 @@ const crudOne = async (req, res) => {
         return res.status(404).json({error: 'No such data'})
       }
 
-    const crudModels = await crudModel.findById(id)
+    const locationModels = await locationModel.findById(id)
 
-    if (!crudModels) {
+    if (!locationModels) {
         return res.status(404).json({error: 'No such data'})
       }
 
-    res.status(200).json(crudModels)
+    res.status(200).json(locationModels)
 
     }
 // Post
@@ -47,8 +47,8 @@ const crudPost = async (req, res) => {
 
     // Add to db
 try {
-    const crudModels = await crudModel.create({title, day, address})
-    res.status(200).json(crudModels)
+    const locationModels = await locationModel.create({title, day, address})
+    res.status(200).json(locationModels)
 }catch (error){
     res.status(400).json({error: error.message})
 }
@@ -63,13 +63,13 @@ const crudDelete = async (req, res) => {
       return res.status(400).json({error: 'No such data'})
     }
   
-    const crudModels = await crudModel.findOneAndDelete({_id: id})
+    const locationModels = await locationModel.findOneAndDelete({_id: id})
   
-    if(!crudModels) {
+    if(!locationModels) {
       return res.status(400).json({error: 'No such data'})
     }
   
-    res.status(200).json(crudModels)
+    res.status(200).json(locationModels)
 }
 
 // Update using ID
@@ -80,15 +80,15 @@ const crudUpdate = async (req, res) => {
       return res.status(400).json({error: 'No such data'})
     }
   
-    const crudModels = await crudModel.findOneAndUpdate({_id: id}, {
+    const locationModels = await locationModel.findOneAndUpdate({_id: id}, {
       ...req.body
     })
   
-    if (!crudModels) {
+    if (!locationModels) {
       return res.status(400).json({error: 'No such data'})
     }
   
-    res.status(200).json(crudModels)
+    res.status(200).json(locationModels)
   }
 
   module.exports = {

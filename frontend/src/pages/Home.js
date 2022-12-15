@@ -21,7 +21,6 @@ const Home = () => {
             <div className="locations">
                 {locations && locations.map((location)=> (
                     <LocationDetails key={location._id} location={location}/>
-                    //<p key={location._id}>{location.title}</p>
                 ))}
             </div>
             <LocationForm />

@@ -14,9 +14,9 @@ const Nav = () => {
                     <h4>Travel</h4>
                </Link>
                <Link to = '/festival'>
-                    <h4>Frestival Info</h4>
+                    <h4>Festival Info</h4>
                </Link>
-               <Link to = '/tichets'>
+               <Link to = '/tickets'>
                     <h4>Buy Tickets</h4>
                </Link>
           </div>

@@ -17,4 +17,4 @@ const locationSchema = new Schema({
     }
 },{ timestamps: true })
 
-module.exports = mongoose.model('crudModel', locationSchema)
+module.exports = mongoose.model('locationModel', locationSchema)
