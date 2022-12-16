@@ -9,6 +9,7 @@ import Lineup from './pages/Lineup'
 import Nav from './components/Nav'
 import Tickets from './pages/Tickets';
 import Travel from './pages/Travel';
+import FestivalInfo from './pages/FestivalInfo'
 
 
 
@@ -46,6 +47,10 @@ function App() {
             <Route
             path="/travel"
             element={<Travel />}
+            />
+                        <Route
+            path="/festival"
+            element={<FestivalInfo />}
             />
           </Routes>
         </div>

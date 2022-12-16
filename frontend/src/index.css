@@ -112,3 +112,7 @@ canvas {
 .banner {
   width: 100%;
 }
+
+.head {
+  text-align: center;
+}
