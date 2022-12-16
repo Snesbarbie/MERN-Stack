@@ -9,7 +9,7 @@ const crudAll = async (req, res) => {
     res.status(200).json(artistModels)
 
     }
-
+// Get day one info
     const crudDayOne = async (req, res) => {
 
       const artistModels = await artistModel.find({day: 1}).sort({createdAt: -1})
@@ -17,6 +17,22 @@ const crudAll = async (req, res) => {
       res.status(200).json(artistModels)
   
       }
+// Get day one info
+const crudDayTwo = async (req, res) => {
+
+  const artistModels = await artistModel.find({day: 2}).sort({createdAt: -1})
+
+  res.status(200).json(artistModels)
+
+  }
+// Get day one info
+const crudDayThree = async (req, res) => {
+
+  const artistModels = await artistModel.find({day: 3}).sort({createdAt: -1})
+
+  res.status(200).json(artistModels)
+
+  }
 // Get using ID
 const crudOne = async (req, res) => {
     const { id } = req.params
@@ -105,6 +121,8 @@ const crudUpdate = async (req, res) => {
   module.exports = {
     crudAll,
     crudDayOne,
+    crudDayTwo,
+    crudDayThree,
     crudOne,
     crudPost,
     crudUpdate,

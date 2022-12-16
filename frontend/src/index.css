@@ -107,3 +107,8 @@ canvas {
   top: 0;
   bottom: 0;
 }
+
+/* banner */
+.banner {
+  width: 100%;
+}

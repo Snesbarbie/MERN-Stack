@@ -3,6 +3,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import Home from './pages/Home'
 import Day1 from './pages/Day1'
+import Day2 from './pages/Day2'
+import Day3 from './pages/Day3'
 import Lineup from './pages/Lineup'
 import Nav from './components/Nav'
 import Tickets from './pages/Tickets';
@@ -32,6 +34,14 @@ function App() {
             <Route
             path="/lineup/day/1"
             element={<Day1 />}
+            />
+                        <Route
+            path="/lineup/day/2"
+            element={<Day2 />}
+            />
+                        <Route
+            path="/lineup/day/3"
+            element={<Day3 />}
             />
             <Route
             path="/travel"
