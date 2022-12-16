@@ -3,15 +3,16 @@ import { useArtistsContext } from "../hooks/useArtistsContext";
 import ArtistDetails from '../components/ArtistDetails'
 
 
-const Lineup = () => {
+const Day1 = () => {
     const {artists, dispatch} = useArtistsContext()
     useEffect(()=>{
 
         const fetchLocations = async ()=>{
-            const response = await fetch('/api/artists')
+            const response = await fetch('/api/artists/day/1')
             const json = await response.json()
-            if(response.ok){
-                dispatch({type: 'SET_ARTISTS', payload: json})
+
+                if(response.ok){
+                    dispatch({type: 'SET_ARTISTS', payload: json})
             }
         }
         fetchLocations()
@@ -20,6 +21,7 @@ const Lineup = () => {
     return (
         <div className="home">
             <div className="artists">
+
                 {artists && artists.map((artist)=> (
                     <ArtistDetails key={artist._id} artist={artist}/>
                 ))}
@@ -29,4 +31,4 @@ const Lineup = () => {
     )
 }
 
-export default Lineup;
+export default Day1;

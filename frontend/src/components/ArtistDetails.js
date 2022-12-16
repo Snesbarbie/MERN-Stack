@@ -7,6 +7,7 @@ const ArtistDetails = ({artist})=>{
             <p><strong>About: </strong>{artist.about}</p>
             <p>{artist.createdAt}</p>
         </div>
+
     )
     
 }

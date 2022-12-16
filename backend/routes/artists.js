@@ -1,6 +1,7 @@
 const express = require('express')
 const {
   crudAll,
+  crudDayOne,
   crudOne,
   crudPost,
   crudUpdate,
@@ -11,6 +12,9 @@ const router = express.Router()
 
 // GET all
 router.get('/', crudAll)
+
+// GET day 1
+router.get('/day/1', crudDayOne)
 
 // GET a single
 router.get('/:id', crudOne)

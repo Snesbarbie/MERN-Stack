@@ -1,47 +1,30 @@
-//import * as THREE from 'three';
-import {Canvas} from 'react-three-fiber'
-import React, { Suspense } from "react";
+import { useEffect } from "react";
+import { useLocationContext } from "../hooks/useLocationsContext";
+import LocationDetails from '../components/LocationDetails'
 
 
-function Box(){
-    return(
-        <mesh>
-            <boxBufferGeometry attach="geometry"/>
-            <meshLambertMaterial attach="matterial" color="hotpink"/>
-        </mesh>
-    )
-
-}
 const Travel = () => {
-    /*
-    const scene = new THREE.Scene()
+    const {locations, dispatch} = useLocationContext()
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-
-    const renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#bd')
-    })
-
-    renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    camera.position.setZ(30)
-
-    renderer.render(scene, camera)
-
-    const geo = new THREE.TorusGeometry(10,3,16,100)
-    const mat = new THREE.MeshBasicMaterial({color: 0xFF6347, wireframe: true})
-    const torus = new THREE.Mesh (geo,mat)
-
-    scene.add(torus)
-
-    renderer.render(scene, camera)
-*/
-    return(
-        <Canvas>
-        <Suspense fallback={null}>
-            <Box />
-        </Suspense>
-        </Canvas>
+    useEffect(()=>{
+        const fetchLocations = async ()=>{
+            const response = await fetch('/api/locations')
+            const json = await response.json()
+            if(response.ok){
+                dispatch({type: 'SET_LOCATIONS', payload: json})
+            }
+        }
+        fetchLocations()
+    }, [dispatch])
+    return (
+        <div className="home">
+            <div className="locations">
+                {locations && locations.map((location)=> (
+                    <LocationDetails key={location._id} location={location}/>
+                ))}
+            </div>
+           
+        </div>
     )
 }
 
